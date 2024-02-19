@@ -286,6 +286,8 @@ require('lazy').setup({
   -- Github copilot
   require 'custom.plugins.copilot',
   require 'custom.plugins.undotree',
+  require 'custom.plugins.copilotChat',
+  require 'custom.plugins.neotree'
   -- Cmp for copilot
   -- require 'custom.plugins.copilot_cmp',
 }, {})
@@ -302,6 +304,12 @@ vim.wo.number = true
 
 -- Enable mouse mode
 vim.o.mouse = 'a'
+
+-- Vertical split to the right
+vim.o.splitright = true
+
+-- Horizontal split to the bottom
+vim.o.splitbelow = true
 
 -- Sync clipboard between OS and Neovim.
 --  Remove this option if you want your OS clipboard to remain independent.
