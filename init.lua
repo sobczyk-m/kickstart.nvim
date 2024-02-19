@@ -389,6 +389,14 @@ require('telescope').setup {
       },
     },
   },
+  pickers = {
+    buffers = {
+      -- sort buffers by last used
+      sort_lastused = true,
+      -- ignore current buffer in list
+      ignore_current_buffer = true,
+    },
+  },
 }
 
 -- Enable telescope fzf native, if installed
