@@ -88,7 +88,7 @@ require('lazy').setup({
 
       -- Useful status updates for LSP
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-      { 'j-hui/fidget.nvim', opts = {} },
+      { 'j-hui/fidget.nvim',       opts = {} },
 
       -- Additional lua configuration, makes nvim stuff amazing!
       'folke/neodev.nvim',
@@ -124,7 +124,7 @@ require('lazy').setup({
   },
 
   -- Useful plugin to show you pending keybinds.
-  { 'folke/which-key.nvim', opts = {} },
+  { 'folke/which-key.nvim',  opts = {} },
   {
     -- Adds git related signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
@@ -285,6 +285,7 @@ require('lazy').setup({
   -- { import = 'custom.plugins' }, - imporst all plugins from folder
   -- Github copilot
   require 'custom.plugins.copilot',
+  require 'custom.plugins.undotree',
   -- Cmp for copilot
   -- require 'custom.plugins.copilot_cmp',
 }, {})
@@ -335,6 +336,10 @@ vim.o.termguicolors = true
 
 -- File extension support
 vim.filetype.add({ extension = { templ = "templ" } })
+
+-- Persist history after closing the buffer
+vim.o.undofile = true
+
 -- [[ Basic Keymaps ]]
 
 -- Keymaps for better default experience
@@ -350,6 +355,9 @@ vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous dia
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
+
+-- undo tree
+vim.keymap.set('n', '<leader><F5>', vim.cmd.UndotreeToggle)
 
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
