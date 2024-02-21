@@ -60,7 +60,6 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-
 -- [[ Configure plugins ]]
 -- NOTE: Here is where you install your plugins.
 --  You can configure plugins using the `config` key.
@@ -289,7 +288,8 @@ require('lazy').setup({
   require 'custom.plugins.undotree',
   require 'custom.plugins.copilotChat',
   require 'custom.plugins.neotree',
-  require 'custom.plugins.harpoon'
+  require 'custom.plugins.harpoon',
+  require 'custom.plugins.nvim-surround'
   -- Cmp for copilot
   -- require 'custom.plugins.copilot_cmp',
 }, {})
