@@ -293,7 +293,8 @@ require('lazy').setup({
   require 'custom.plugins.symbols-outline',
   require 'custom.plugins.oil',
   require 'custom.plugins.markdown-preview',
-  require 'custom.plugins.indent-blankline'
+  require 'custom.plugins.indent-blankline',
+  require 'custom.plugins.ufo'
   -- Cmp for copilot
   -- require 'custom.plugins.copilot_cmp',
 }, {})
@@ -372,6 +373,14 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 
 -- undo tree
 vim.keymap.set('n', '<leader><F5>', vim.cmd.UndotreeToggle)
+
+-- Set fold settings
+-- These options were reccommended by nvim-ufo
+-- See: https://github.com/kevinhwang91/nvim-ufo#minimal-configuration
+vim.opt.foldcolumn = "0"
+vim.opt.foldlevel = 99
+vim.opt.foldlevelstart = 99
+vim.opt.foldenable = true
 
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
