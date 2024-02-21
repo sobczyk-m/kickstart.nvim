@@ -289,7 +289,8 @@ require('lazy').setup({
   require 'custom.plugins.copilotChat',
   require 'custom.plugins.neotree',
   require 'custom.plugins.harpoon',
-  require 'custom.plugins.nvim-surround'
+  require 'custom.plugins.nvim-surround',
+  require 'custom.plugins.symbols-outline'
   -- Cmp for copilot
   -- require 'custom.plugins.copilot_cmp',
 }, {})
