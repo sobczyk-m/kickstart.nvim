@@ -291,7 +291,8 @@ require('lazy').setup({
   require 'custom.plugins.harpoon',
   require 'custom.plugins.nvim-surround',
   require 'custom.plugins.symbols-outline',
-  require 'custom.plugins.oil'
+  require 'custom.plugins.oil',
+  require 'custom.plugins.markdown-preview'
   -- Cmp for copilot
   -- require 'custom.plugins.copilot_cmp',
 }, {})
