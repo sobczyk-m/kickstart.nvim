@@ -290,7 +290,8 @@ require('lazy').setup({
   require 'custom.plugins.neotree',
   require 'custom.plugins.harpoon',
   require 'custom.plugins.nvim-surround',
-  require 'custom.plugins.symbols-outline'
+  require 'custom.plugins.symbols-outline',
+  require 'custom.plugins.oil'
   -- Cmp for copilot
   -- require 'custom.plugins.copilot_cmp',
 }, {})
