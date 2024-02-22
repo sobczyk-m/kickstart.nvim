@@ -294,7 +294,8 @@ require('lazy').setup({
   require 'custom.plugins.oil',
   require 'custom.plugins.markdown-preview',
   require 'custom.plugins.indent-blankline',
-  require 'custom.plugins.ufo'
+  require 'custom.plugins.ufo',
+  require("custom.plugins.illuminate")
   -- Cmp for copilot
   -- require 'custom.plugins.copilot_cmp',
 }, {})
@@ -354,6 +355,12 @@ vim.filetype.add({ extension = { templ = "templ" } })
 
 -- Persist history after closing the buffer
 vim.o.undofile = true
+
+-- Fix for vim-illuminate highlightings
+-- From text underline to background highlighting
+vim.api.nvim_set_hl(0, "IlluminatedWordText", { link = "Visual" })
+vim.api.nvim_set_hl(0, "IlluminatedWordRead", { link = "Visual" })
+vim.api.nvim_set_hl(0, "IlluminatedWordWrite", { link = "Visual" })
 
 -- [[ Basic Keymaps ]]
 
