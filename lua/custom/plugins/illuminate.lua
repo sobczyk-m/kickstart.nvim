@@ -5,8 +5,14 @@ return {
     delay = 200,
     large_file_cutoff = 2000,
     large_file_overrides = {
-      providers = { "lsp" },
+      providers = {
+        'lsp',
+        'treesitter',
+        'regex',
+      },
     },
+    under_cursor = false,
+    min_count_to_highlight = 2,
   },
   config = function(_, opts)
     require("illuminate").configure(opts)
@@ -28,6 +34,14 @@ return {
         map("[[", "prev", buffer)
       end,
     })
+
+    -- vim-illuminate highlightings
+    -- Set background highlighting of matching groups instead of underlined
+    local backgroundColor = "#D19A66"
+    local foregroundColor = "#282C34"
+    vim.api.nvim_set_hl(0, "IlluminatedWordText", { bg = backgroundColor, fg = foregroundColor })
+    vim.api.nvim_set_hl(0, "IlluminatedWordRead", { bg = backgroundColor, fg = foregroundColor })
+    vim.api.nvim_set_hl(0, "IlluminatedWordWrite", { bg = backgroundColor, fg = foregroundColor })
   end,
   keys = {
     { "]]", desc = "Next Reference" },

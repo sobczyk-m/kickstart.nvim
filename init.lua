@@ -295,7 +295,8 @@ require('lazy').setup({
   require 'custom.plugins.markdown-preview',
   require 'custom.plugins.indent-blankline',
   require 'custom.plugins.ufo',
-  require("custom.plugins.illuminate")
+  require("custom.plugins.illuminate"),
+  require("custom.plugins.spectre")
   -- Cmp for copilot
   -- require 'custom.plugins.copilot_cmp',
 }, {})
@@ -355,12 +356,6 @@ vim.filetype.add({ extension = { templ = "templ" } })
 
 -- Persist history after closing the buffer
 vim.o.undofile = true
-
--- Fix for vim-illuminate highlightings
--- From text underline to background highlighting
-vim.api.nvim_set_hl(0, "IlluminatedWordText", { link = "Visual" })
-vim.api.nvim_set_hl(0, "IlluminatedWordRead", { link = "Visual" })
-vim.api.nvim_set_hl(0, "IlluminatedWordWrite", { link = "Visual" })
 
 -- [[ Basic Keymaps ]]
 
@@ -622,12 +617,18 @@ require('which-key').register {
   ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
   ['<leader>t'] = { name = '[T]oggle', _ = 'which_key_ignore' },
   ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
+  ['<leader>S'] = { name = '[S]pectre', _ = 'which_key_ignore' },
+  ['<leader><F5>'] = { name = '[U]ndo tree', _ = 'which_key_ignore' }
 }
 -- register which-key VISUAL mode
 -- required for visual <leader>hs (hunk stage) to work
 require('which-key').register({
   ['<leader>'] = { name = 'VISUAL <leader>' },
   ['<leader>h'] = { 'Git [H]unk' },
+
+  ['<leader>S'] = { '[S]pectre' },
+  ['<leader>c'] = { "Github [C]opilot Chat" },
+  ['<leader>cc'] = { "Github [C]opilot [C]hat" }
 }, { mode = 'v' })
 
 -- mason-lspconfig requires that these setup functions are called in this order
