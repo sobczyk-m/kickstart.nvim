@@ -296,7 +296,9 @@ require('lazy').setup({
   require 'custom.plugins.indent-blankline',
   require 'custom.plugins.ufo',
   require("custom.plugins.illuminate"),
-  require("custom.plugins.spectre")
+  require("custom.plugins.spectre"),
+  require("custom.plugins.toggleterm"),
+  require("custom.plugins.toggleterm-manager")
   -- Cmp for copilot
   -- require 'custom.plugins.copilot_cmp',
 }, {})
@@ -306,7 +308,7 @@ require('lazy').setup({
 -- NOTE: You can change these options as you wish!
 
 -- Set highlight on search
-vim.o.hlsearch = false
+vim.o.hlsearch = true
 
 -- Make line numbers default
 vim.wo.number = true
@@ -362,6 +364,9 @@ vim.o.undofile = true
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
+
+-- Clear search highlights
+vim.api.nvim_set_keymap('n', '<Leader>ch', ':noh<CR>', { noremap = true, silent = true })
 
 -- Remap for dealing with word wrap
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
@@ -618,7 +623,9 @@ require('which-key').register {
   ['<leader>t'] = { name = '[T]oggle', _ = 'which_key_ignore' },
   ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
   ['<leader>S'] = { name = '[S]pectre', _ = 'which_key_ignore' },
-  ['<leader><F5>'] = { name = '[U]ndo tree', _ = 'which_key_ignore' }
+  ['<leader><F5>'] = { name = '[U]ndo tree', _ = 'which_key_ignore' },
+  ['<leader>cc'] = { name = '[C]opilot[C]hat', _ = 'which_key_ignore' },
+  ['<leader>ch'] = { name = '[C]lear search [H]ighlight', _ = 'which_key_ignore' }
 }
 -- register which-key VISUAL mode
 -- required for visual <leader>hs (hunk stage) to work
