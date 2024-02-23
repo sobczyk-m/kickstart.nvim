@@ -298,7 +298,8 @@ require('lazy').setup({
   require("custom.plugins.illuminate"),
   require("custom.plugins.spectre"),
   require("custom.plugins.toggleterm"),
-  require("custom.plugins.toggleterm-manager")
+  require("custom.plugins.toggleterm-manager"),
+  require("custom.plugins.tailwindcss-colorizer-cmp")
   -- Cmp for copilot
   -- require 'custom.plugins.copilot_cmp',
 }, {})
@@ -745,6 +746,10 @@ cmp.setup {
     { name = 'path' },
     -- Copilot Source
     -- { name = "copilot", group_index = 2 },
+  },
+  ---@diagnostic disable-next-line: missing-fields
+  formatting = {
+    format = require("tailwindcss-colorizer-cmp").formatter
   },
 }
 
