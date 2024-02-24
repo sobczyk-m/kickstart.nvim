@@ -407,9 +407,14 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 require('telescope').setup {
   defaults = {
     mappings = {
+      -- Delete buffer keymapping in telescope
+      n = {
+        ['<C-d>'] = require('telescope.actions').delete_buffer
+      },
       i = {
         ['<C-u>'] = false,
-        ['<C-d>'] = false,
+        -- Delete buffer keymapping in telescope
+        ['<C-d>'] = require('telescope.actions').delete_buffer
       },
     },
   },
