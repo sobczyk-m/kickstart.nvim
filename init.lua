@@ -299,7 +299,8 @@ require('lazy').setup({
   require("custom.plugins.spectre"),
   require("custom.plugins.toggleterm"),
   require("custom.plugins.toggleterm-manager"),
-  require("custom.plugins.tailwindcss-colorizer-cmp")
+  require("custom.plugins.tailwindcss-colorizer-cmp"),
+  require("custom.plugins.gp-nvim")
   -- Cmp for copilot
   -- require 'custom.plugins.copilot_cmp',
 }, {})
@@ -626,7 +627,8 @@ require('which-key').register {
   ['<leader>S'] = { name = '[S]pectre', _ = 'which_key_ignore' },
   ['<leader><F5>'] = { name = '[U]ndo tree', _ = 'which_key_ignore' },
   ['<leader>cc'] = { name = '[C]opilot[C]hat', _ = 'which_key_ignore' },
-  ['<leader>ch'] = { name = '[C]lear search [H]ighlight', _ = 'which_key_ignore' }
+  ['<leader>ch'] = { name = '[C]lear search [H]ighlight', _ = 'which_key_ignore' },
+  ['<leader>o'] = { name = '[O]penAI', _ = 'which_key_ignore' }
 }
 -- register which-key VISUAL mode
 -- required for visual <leader>hs (hunk stage) to work
@@ -636,7 +638,9 @@ require('which-key').register({
 
   ['<leader>S'] = { '[S]pectre' },
   ['<leader>c'] = { "Github [C]opilot Chat" },
-  ['<leader>cc'] = { "Github [C]opilot [C]hat" }
+  ['<leader>cc'] = { "Github [C]opilot [C]hat" },
+
+  ['<leader>o'] = { name = '[O]penAI', _ = 'which_key_ignore' }
 }, { mode = 'v' })
 
 -- mason-lspconfig requires that these setup functions are called in this order
