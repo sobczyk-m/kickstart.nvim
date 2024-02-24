@@ -200,6 +200,7 @@ require('lazy').setup({
     },
   },
 
+  -- Atom theme
   {
     -- Theme inspired by Atom
     'navarasu/onedark.nvim',
@@ -300,7 +301,8 @@ require('lazy').setup({
   require("custom.plugins.toggleterm"),
   require("custom.plugins.toggleterm-manager"),
   require("custom.plugins.tailwindcss-colorizer-cmp"),
-  require("custom.plugins.gp-nvim")
+  require("custom.plugins.gp-nvim"),
+  -- require("custom.plugins.tokyonight")
   -- Cmp for copilot
   -- require 'custom.plugins.copilot_cmp',
 }, {})
