@@ -274,7 +274,8 @@ require('lazy').setup({
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
   --       Uncomment any of the lines below to enable them.
-  require 'kickstart.plugins.autoformat',
+  -- Replaced by conform.nvim plugin
+  -- require 'kickstart.plugins.autoformat',
   require 'kickstart.plugins.debug',
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
@@ -302,6 +303,7 @@ require('lazy').setup({
   require("custom.plugins.toggleterm-manager"),
   require("custom.plugins.tailwindcss-colorizer-cmp"),
   require("custom.plugins.gp-nvim"),
+  require("custom.plugins.conform")
   -- require("custom.plugins.tokyonight")
   -- Cmp for copilot
   -- require 'custom.plugins.copilot_cmp',
@@ -310,25 +312,6 @@ require('lazy').setup({
 -- [[ Setting options ]]
 -- See `:help vim.o`
 -- NOTE: You can change these options as you wish!
-
--- Formatter for *.templ files
-local templ_format = function()
-  local bufnr = vim.api.nvim_get_current_buf()
-  local filename = vim.api.nvim_buf_get_name(bufnr)
-  local cmd = "templ fmt " .. vim.fn.shellescape(filename)
-
-  vim.fn.jobstart(cmd, {
-    on_exit = function()
-      -- Reload the buffer only if it's still the current buffer
-      if vim.api.nvim_get_current_buf() == bufnr then
-        vim.cmd('e!')
-      end
-    end,
-  })
-end
-
--- Format on save for *.templ files
-vim.api.nvim_create_autocmd({ "BufWritePre" }, { pattern = { "*.templ" }, callback = templ_format })
 
 -- numToStr/Comment.nvim configuration
 local ft = require('Comment.ft')
@@ -666,11 +649,9 @@ require('which-key').register {
 require('which-key').register({
   ['<leader>'] = { name = 'VISUAL <leader>' },
   ['<leader>h'] = { 'Git [H]unk' },
-
   ['<leader>S'] = { '[S]pectre' },
-  ['<leader>c'] = { "Github [C]opilot Chat" },
-  ['<leader>cc'] = { "Github [C]opilot [C]hat" },
-
+  ['<leader>c'] = { '[C]ode' },
+  ["<leader>cc"] = { 'Github [C]opilot [C]hat' },
   ['<leader>o'] = { name = '[O]penAI', _ = 'which_key_ignore' }
 }, { mode = 'v' })
 
